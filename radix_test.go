@@ -9,6 +9,31 @@ import (
 	"testing"
 )
 
+// http://blog.vgbhfive.cn/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E6%95%B0%E6%A0%91/
+// https://www.dandelioncloud.cn/article/details/1489239123386028034
+func TestHello(t *testing.T) {
+	// Create a tree
+	r := New()
+	//r.Insert("foo", 1)
+	//r.Insert("bar", 2)
+	//r.Insert("foobar", 2)
+
+	r.Insert("die", "死亡")
+	r.Insert("door", "门")
+	r.Insert("first", "第一")
+	r.Insert("disaster", "灾难")
+	r.Insert("first", "第一")
+	r.Insert("friend", "朋友")
+	r.Insert("friendship", "友情")
+	r.Insert("fry", "煎炸")
+
+	// Find the longest prefix match
+	m, _, _ := r.LongestPrefix("foozip")
+	if m != "foo" {
+		panic("should be foo")
+	}
+}
+
 func TestRadix(t *testing.T) {
 	var min, max string
 	inp := make(map[string]interface{})
